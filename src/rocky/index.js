@@ -21,6 +21,13 @@ var drawHorizontalRect = function(ctx, x,y,w, h, color) {
   ctx.stroke();
 };
 
+var writeText = function(ctx, x, y, w, h, color, text) {
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+
+  // Display the time, in the middle of the screen
+  ctx.fillText(text, (x+w)/2, (y+h)/2);
+};
 
 rocky.on('draw', function(event) {
   // Get the CanvasRenderingContext2D object
@@ -34,9 +41,14 @@ rocky.on('draw', function(event) {
   var w = ctx.canvas.unobstructedWidth;
   var h = ctx.canvas.unobstructedHeight;
 
-  var hourHandX = h / 12 * (d.getHours() % 12);
-  var minHandX = h / 60 * d.getMinutes();
+  var hours = d.getHours();
+  var minutes = d.getMinutes();
+  var hourHandY = h / 12 * (hours % 12);
+  var minHandY = h / 60 * minutes;
   
-  drawHorizontalRect(ctx, 0, hourHandX, w/2, h/12, 'white');
-  drawHorizontalRect(ctx, w/2, minHandX, w/2, h/60, 'lightblue');
+  drawHorizontalRect(ctx, 0, hourHandY, w/2, h/12, 'white');
+  writeText(ctx, 0, hourHandY, w/2, h/12, 'white', hours);
+  drawHorizontalRect(ctx, w/2, minHandY, w/2, h/60, 'lightblue');
+  writeText(ctx, w/2, minHandY, w/2, h/12, 'white', minutes);
+  
 });
