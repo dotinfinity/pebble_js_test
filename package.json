@@ -1,0 +1,27 @@
+{
+    "author": "max.cmao@gmail.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "js-face-test",
+    "pebble": {
+        "capabilities": [
+            "configurable"
+        ],
+        "displayName": "JS Face Test",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "rocky",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "basalt"
+        ],
+        "uuid": "29433848-ff32-4183-b100-5d01bd8d0d24",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
